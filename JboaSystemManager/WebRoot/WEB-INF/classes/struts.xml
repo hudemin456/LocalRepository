@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<package name="default" namespace="/" extends="struts-default">
+
+	<action name="findById" class="action.BizClaimVoucherAction" method="findById">
+		<result>index.jsp</result>
+	</action>
+	
+	<action name="findAll" class="action.BizClaimVoucherAction" method="findAll">
+		<result>Manager.jsp</result>
+	</action>
+	
+	<action name="update" class="action.BizClaimVoucherAction" method="update">
+		<result>Manager.jsp</result>
+	</action>
+	
+	<action name="login" class="action.SysEmployeeAction" method="login">
+		<result type="redirectAction">findById</result>
+		<result name="money">/Money.jsp</result>
+		<result name="manager" type="redirectAction">findAll</result>
+		<result name="boss">Boss.jsp</result>
+	</action>
+	
+	<action name="add" class="action.BizClaimVoucherAction" method="add">
+		<result type="redirectAction">findById</result>
+		<result name="error" type="redirectAction">findById</result>
+	</action>
+	
+	<action name="delete" class="action.BizClaimVoucherAction" method="delete">
+		<result type="redirectAction">findById</result>
+	</action>
+	
+	<action name="details" class="action.BizClaimVoucherAction" method="details">
+		<result>details.jsp</result>
+		<result name="update">Details_update.jsp</result>
+	</action>
+	
+	<action name="Details_delete" class="action.BizClaimVoucherDetailAction" method="Details_delete">
+		<result type="chain">details.action</result>
+	</action>
+
+	<action name="Details_submit" class="action.BizClaimVoucherDetailAction" method="Details_submit">
+		<result type="redirectAction">findById</result>
+	</action>
+	<action name="Manager_Details" class="action.BizClaimVoucherAction" method="Manager_Details">
+		<result>Manager_Deteils.jsp</result>
+	</action>
+
+	<action name="go_back" class="action.BizClaimVoucherAction" method="go_back">
+		<result type="redirectAction">findAll</result>
+	</action>
+	
+	<action name="pass" class="action.BizClaimVoucherAction" method="pass">
+			<result type="redirectAction">save</result>
+	</action>
+	
+	<action name="save" class="action.BizCheckResultAction" method="save">
+			<result type="redirectAction">findAll</result>
+	</action>
+	
+</package>
+</struts>    
