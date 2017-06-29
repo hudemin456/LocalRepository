@@ -22,9 +22,15 @@ public class BizClaimVoucherdaoimpl extends HibernateDaoSupport implements BizCl
 			super.setSessionFactory(sessionFactory);
 		}
 
-		public List<BizClaimVoucher> find_BizClaimVoucher() {
-			// TODO Auto-generated method stub
-			return this.getHibernateTemplate().find("from BizClaimVoucher");
+		public List<BizClaimVoucher> find_BizClaimVoucher(int index) {
+			
+			if(index>0){
+				return this.getHibernateTemplate().find("from BizClaimVoucher b where b.status='已提交' and totalAccount>5000");
+			}else
+			{
+				return this.getHibernateTemplate().find("from BizClaimVoucher b where b.status='已提交' and totalAccount<=5000");
+			}
+			
 		}
 
 		public int del(int id) {
@@ -101,6 +107,21 @@ public class BizClaimVoucherdaoimpl extends HibernateDaoSupport implements BizCl
 						.getSession()
 						.createQuery(
 								"update BizClaimVoucher b set b.status='已通过' where b.id=?");
+				q.setInteger(0, id);
+				q.executeUpdate();
+				return 1;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return 0;
+			}
+		}
+
+		public int submit(int id) {
+			try {
+				Query q = this
+						.getSession()
+						.createQuery(
+								"update BizClaimVoucher b set b.status='已提交' where b.id=?");
 				q.setInteger(0, id);
 				q.executeUpdate();
 				return 1;

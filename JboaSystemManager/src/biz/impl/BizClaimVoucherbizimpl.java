@@ -26,9 +26,9 @@ public class BizClaimVoucherbizimpl implements BizClaimVoucherbiz {
 		this.dao = dao;
 	}
 
-	public List<BizClaimVoucher> find_BizClaimVoucher() {
+	public List<BizClaimVoucher> find_BizClaimVoucher(int index) {
 		// TODO Auto-generated method stub
-		return dao.find_BizClaimVoucher();
+		return dao.find_BizClaimVoucher(index);
 	}
 
 	public int del(int id) {
@@ -64,6 +64,11 @@ public class BizClaimVoucherbizimpl implements BizClaimVoucherbiz {
 	public int pass(int id) {
 		// TODO Auto-generated method stub
 		return dao.pass(id);
+	}
+
+	public int submit(int id) {
+		// TODO Auto-generated method stub
+		return dao.submit(id);
 	}
 	
 	

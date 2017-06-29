@@ -11,7 +11,7 @@ public class SysPosition implements java.io.Serializable {
 
 	// Fields
 
-	private Long id;
+	private int id;
 	private String nameCn;
 	private String nameEn;
 	private Set sysEmployees = new HashSet(0);
@@ -20,12 +20,12 @@ public class SysPosition implements java.io.Serializable {
 	public SysPosition() {
 	}
 
-	public SysPosition(Long id) {
+	public SysPosition(int id) {
 		this.id = id;
 	}
 
 	/** full constructor */
-	public SysPosition(Long id, String nameCn, String nameEn, Set sysEmployees) {
+	public SysPosition(int id, String nameCn, String nameEn, Set sysEmployees) {
 		this.id = id;
 		this.nameCn = nameCn;
 		this.nameEn = nameEn;
@@ -34,11 +34,11 @@ public class SysPosition implements java.io.Serializable {
 
 	// Property accessors
 
-	public Long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

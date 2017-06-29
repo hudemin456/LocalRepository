@@ -39,12 +39,16 @@ public class SysEmployeeAction extends ActionSupport {
 			ActionContext.getContext().getSession().put("name1",s.getName());
 			
 			ActionContext.getContext().getSession().put("department",s.getSysDepartment().getName());
+
 			
 			if(s.getSysPosition().getId()==2){
+				ActionContext.getContext().getSession().put("position",0);
 				return "manager";
 			}else if(s.getSysPosition().getId()==3){
+				ActionContext.getContext().getSession().put("position",0);
 				return "money";
 			}else if(s.getSysPosition().getId()==4){
+				ActionContext.getContext().getSession().put("position",1);
 				return "boss";
 			}else
 			{

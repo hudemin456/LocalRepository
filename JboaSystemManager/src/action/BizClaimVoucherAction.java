@@ -47,7 +47,7 @@ public class BizClaimVoucherAction extends ActionSupport {
 	
 	public String findAll(){
 		
-		list =claimvoucherbiz.find_BizClaimVoucher();
+		list =claimvoucherbiz.find_BizClaimVoucher(0);
 	
 		return SUCCESS;
 	}
@@ -67,6 +67,16 @@ public class BizClaimVoucherAction extends ActionSupport {
 		return SUCCESS;
 	}
 	
+	public String Boss_findAll(){
+		
+		int index=(Integer) ActionContext.getContext().getSession().get("position");
+		
+		list =claimvoucherbiz.find_BizClaimVoucher(index);
+	
+		return SUCCESS;
+		
+	}
+	
 	public String details(){
 		
 		b=claimvoucherbiz.details(id);
@@ -82,6 +92,14 @@ public class BizClaimVoucherAction extends ActionSupport {
 		}else{	
 		return SUCCESS;
 		}
+	}
+	
+	public String submit(){
+		
+		claimvoucherbiz.submit(id);
+		
+		return SUCCESS;
+		
 	}
 	
 	public String Manager_Details(){
@@ -164,23 +182,33 @@ public class BizClaimVoucherAction extends ActionSupport {
 		
 		claimvoucherbiz.go_back(id);
 		
+		int index=(Integer) ActionContext.getContext().getSession().get("position");
 		
-		
-		return SUCCESS;
+		if(index>0){
+			return "boss";
+		}else{
+			return SUCCESS;
+		}
 		
 	}
 	
 	public String pass(){
 		
-		claimvoucherbiz.go_back(id);
 		
 		ActionContext.getContext().getSession().put("comm",comm);
 
 		ActionContext.getContext().getSession().put("bid",b.getId());
+
 		
+		claimvoucherbiz.pass(b.getId());
 		
-		return SUCCESS;
+		int index=(Integer) ActionContext.getContext().getSession().get("position");
 		
+		if(index>0){
+			return "boss";
+		}else{
+			return SUCCESS;
+		}
 	}
 	
 	public String delete(){

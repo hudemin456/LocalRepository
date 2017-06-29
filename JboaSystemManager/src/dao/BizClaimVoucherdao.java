@@ -9,7 +9,7 @@ import entity.BizClaimVoucher;
 @Transactional(propagation=Propagation.REQUIRED)
 public interface BizClaimVoucherdao {
 
-	public List<BizClaimVoucher> find_BizClaimVoucher();
+	public List<BizClaimVoucher> find_BizClaimVoucher(int index);
 	
 	public List<BizClaimVoucher> find_BizClaimVoucher(String id);
 	
@@ -24,5 +24,7 @@ public interface BizClaimVoucherdao {
 	public int go_back(int id);
 	
 	public int pass(int id);
+	
+	public int submit(int id);
 	
 }

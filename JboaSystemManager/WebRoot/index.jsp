@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -48,7 +49,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<td>${b.totalAccount}</td>
     		<td>${b.status}</td>
     		<td>${ b.sysEmployeeByNextDealSn.name}</td>
-    		<td><a href="details?id=${b.id}&status=lalalala">修改</a>&nbsp<a href="save_BizClaimVocher.jsp">新增</a><a href="details?id=${b.id}&status=h">详情</a></td>
+    		<td>
+
+    			<c:if test="${b.status=='已打回'}"><a href="details?id=${b.id}&status=lalalala">修改</a>&nbsp</c:if><a href="details?id=${b.id}&status=h">详情</a>
+    		</td>
+    		
+    		
     	</tr>
     	</s:iterator>
     </table>

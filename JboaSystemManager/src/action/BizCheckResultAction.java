@@ -56,7 +56,9 @@ public class BizCheckResultAction extends ActionSupport {
 		
 		int bid=(Integer) ActionContext.getContext().getSession().get("bid");
 		
+		String id=(String) ActionContext.getContext().getSession().get("name");
 		
+		b.setSysEmployee(new SysEmployee(id));
 		
 		b.setBizClaimVoucher(new BizClaimVoucher(bid));
 		
@@ -76,8 +78,6 @@ public class BizCheckResultAction extends ActionSupport {
 		b.setCheckTime(time);
 		
 		b.setResult("“—Ã·Ωª");
-		
-		
 		
 		checkresultbiz.save(b);
 		

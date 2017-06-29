@@ -107,8 +107,8 @@ $(function(){
    		<th colspan="4"><hr><th>
    	</tr>
    <tr>
-   	<td><input type="button" value="保存"></td>
-   	<td><input type="submit" value="提交"></td>
+   	<td><input type="submit" value="保存"></td>
+   	<td><input type="button" value="提交" onclick="window.location.href='submit?id=${b.id}'"></td>
    	<td><input type="button" value="返回" onclick="window.location.href='findById.action'"></td>
    	
    </tr>

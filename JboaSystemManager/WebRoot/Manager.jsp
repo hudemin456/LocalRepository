@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<td>${b.totalAccount}</td>
     		<td>${b.status}</td>
     		<td>${ b.sysEmployeeByNextDealSn.name}</td>
-    		<td><c:if test="${b.status=='已提交'}"><a href="Post?id=${b.id}">通过</a>&nbsp<a href="Manager_Details?id=${b.id}">详情</a></c:if></td>
+    		<td><c:if test="${b.status=='已提交'}"><a href="pass?b.id=${b.id}">通过</a>&nbsp<a href="Manager_Details?id=${b.id}">详情</a></c:if></td>
     	</tr>
     	</s:iterator>
     </table>

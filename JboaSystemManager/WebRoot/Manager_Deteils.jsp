@@ -69,16 +69,13 @@
 					</td>
 				</tr>
 
-				<tr>
-				
+				<tr>	
 					<td colspan="5">
-					
-					<input type="hidden" value="${b.id}">
+					<input type="hidden" value="${b.id}" name="b.id">
 					<input type="submit" value="审核通过" />&nbsp
 					<a href="#">审核拒绝</a>&nbsp
 					<a href="go_back?id=${b.id}">审核打回</a>&nbsp
 					<a href="#">返回</a>
-					
 					</td>
 				</tr>
 			</s:iterator>
