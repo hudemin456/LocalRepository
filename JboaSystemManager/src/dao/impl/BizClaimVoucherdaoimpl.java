@@ -130,4 +130,27 @@ public class BizClaimVoucherdaoimpl extends HibernateDaoSupport implements BizCl
 				return 0;
 			}
 		}
+
+		public List<Object[]> Count_Month() {
+	/*		return super.getSession().createQuery("select sum(b.totalAccount),to_CHAR(b.createTime,'YYYY'),to_CHAR(b.createTime,'MM')," +
+					"d.name  from BizClaimVoucher b,SysEmployee s,SysDepartment d "+
+					"where b.sysEmployeeByCreateSn.sn=s.sn and d.id=s.sysDepartment.id and b.status='已通过' "+
+					" and b.create_time < to_date('2017-08-15','yyyy-MM-dd') "+
+					" group by to_CHAR(b.createTime,'MM'),to_CHAR(b.createTime,'YYYY'),d.name").list();*/
+			
+			return this.getHibernateTemplate().find("select sum(b.totalAccount) as count,to_CHAR(b.createTime,'YYYY') as year ,to_CHAR(b.createTime,'MM') as month," +
+					"d.name as name from BizClaimVoucher b,SysEmployee s,SysDepartment d "+
+					"where b.sysEmployeeByCreateSn.sn=s.sn and d.id=s.sysDepartment.id and b.status='已通过' "+
+					" group by to_CHAR(b.createTime,'MM'),to_CHAR(b.createTime,'YYYY'),d.name");
+			
+		
+		}
+
+		public List<Object[]> Count_Year() {
+			return this.getHibernateTemplate().find("select sum(b.totalAccount),to_CHAR(b.createTime,'YYYY')," +
+					"d.name from BizClaimVoucher b,SysEmployee s,SysDepartment d "+
+					"where b.sysEmployeeByCreateSn.sn=s.sn and d.id=s.sysDepartment.id and b.status='已通过'"+
+					" group by to_CHAR(b.createTime,'YYYY'),d.name");
+			
+		}
 }

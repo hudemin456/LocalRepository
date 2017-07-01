@@ -20,6 +20,45 @@
 	
 	<context:component-scan base-package="dao,biz"></context:component-scan>
 	
+	
+	
+	<bean id="dao" class="dao.impl.BizClaimVoucherdaoimpl"></bean>
+	
+	<bean id="biz" class="biz.impl.BizClaimVoucherbizimpl">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	
+	<bean id="monthresult" class="dao.impl.CountResultdaoimpl"></bean>
+	
+	<bean id="monthbiz" class="biz.impl.CountResultbizimpl">
+		<property name="dao" ref="monthresult"></property>
+	</bean>
+	
+	
+	<bean name="job1" class="org.springframework.scheduling.quartz.JobDetailBean">  
+		<property name="jobClass" value="util.Quartz_Count" />  
+		<property name="jobDataAsMap">  
+		<map>
+		<entry key="claimvoucherbiz" value-ref="biz" />  
+		<entry key="countbiz" value-ref="monthbiz"></entry>
+		</map>  
+		</property>  
+	</bean>  
+
+	<bean id="cron" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="job1"></property>
+		<property name="cronExpression" value="00 00 00 15 * ? *"></property>
+	</bean>
+	
+	
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cron"/>
+			</list>
+		</property>
+	</bean>
+	
 	<!-- 配置事务管理器 -->
 	<bean id="tx" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory">

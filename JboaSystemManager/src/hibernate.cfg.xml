@@ -25,6 +25,10 @@
 		<mapping resource="entity/BizLeave.hbm.xml" />
 		<mapping resource="entity/SysDepartment.hbm.xml" />
 		<mapping resource="entity/BizClaimVoucher.hbm.xml" />
+		<mapping resource="entity/CountResultDetails.hbm.xml" />
+		<mapping resource="entity/YearCountResult.hbm.xml" />
+		<mapping resource="entity/CountResult.hbm.xml" />
+		<mapping resource="entity/YearCountResultDetails.hbm.xml" />
 
 	</session-factory>
 

@@ -70,5 +70,14 @@
 			<result type="redirectAction">findAll</result>
 	</action>
 	
+	
+	<action name="Count_Month" class="action.BizClaimVoucherAction" method="Count_Month">
+		<result>Count_Month.jsp</result>
+	</action>
+	
+	<action name="Count_Year" class="action.BizClaimVoucherAction" method="Count_Year">
+		<result>Count_Year.jsp</result>
+	</action>
+	
 </package>
 </struts>    

@@ -29,6 +29,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <a href="save_BizClaimVocher.jsp">添加报销单</a>
   <a href="#">申请请假</a>
   <a href="#">查看请假</a>
+  <a href="Count_Month">报销单月度统计</a>
+  <a href="Count_Year">报销单年度统计</a>
   
     <table>
     	<tr>

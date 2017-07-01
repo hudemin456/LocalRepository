@@ -27,4 +27,8 @@ public interface BizClaimVoucherdao {
 	
 	public int submit(int id);
 	
+	public List<Object[]> Count_Month();
+	
+	public List<Object[]> Count_Year();
+	
 }

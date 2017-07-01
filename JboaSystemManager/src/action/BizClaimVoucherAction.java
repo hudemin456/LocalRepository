@@ -23,6 +23,10 @@ public class BizClaimVoucherAction extends ActionSupport {
 	
 	private List<BizClaimVoucher> list;
 	
+	List<BizClaimVoucher>	list_month;
+	
+	List<BizClaimVoucher>	list_year;
+	
 	private String item[];
 	
 	private double money[];
@@ -116,6 +120,21 @@ public class BizClaimVoucherAction extends ActionSupport {
 		
 	}
 	
+	public String Count_Month(){
+		
+		
+		
+		return SUCCESS;
+		
+	}
+	
+	public String Count_Year(){
+		
+		
+		
+		return SUCCESS;
+		
+	}
 	
 	public String add(){
 		
@@ -336,7 +355,23 @@ public String update(){
 		this.comm = comm;
 	}
 
+	public List<BizClaimVoucher> getList_month() {
+		return list_month;
+	}
 
+	public void setList_month(List<BizClaimVoucher> list_month) {
+		this.list_month = list_month;
+	}
+
+	public List<BizClaimVoucher> getList_year() {
+		return list_year;
+	}
+
+	public void setList_year(List<BizClaimVoucher> list_year) {
+		this.list_year = list_year;
+	}
+
+	
 	
 	
 }

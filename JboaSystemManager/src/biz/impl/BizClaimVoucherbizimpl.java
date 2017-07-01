@@ -70,6 +70,16 @@ public class BizClaimVoucherbizimpl implements BizClaimVoucherbiz {
 		// TODO Auto-generated method stub
 		return dao.submit(id);
 	}
+
+	public List<Object[]> Count_Month() {
+		// TODO Auto-generated method stub
+		return dao.Count_Month();
+	}
+
+	public List<Object[]> Count_Year() {
+		// TODO Auto-generated method stub
+		return dao.Count_Year();
+	}
 	
 	
 }
