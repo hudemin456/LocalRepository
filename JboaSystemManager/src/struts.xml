@@ -79,5 +79,14 @@
 		<result>Count_Year.jsp</result>
 	</action>
 	
+	
+	<action name="Month_Details" class="action.CountResultDetalisAction" method="findAll">
+		<result>Count_Month_Details.jsp</result>
+	</action>
+	
+	<action name="excel" class="action.CountResultDetalisAction" method="excel">
+		<result type="redirectAction">Month_Details</result>
+	</action>
+	
 </package>
 </struts>    

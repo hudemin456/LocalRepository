@@ -147,13 +147,36 @@ public class BizClaimVoucherdaoimpl extends HibernateDaoSupport implements BizCl
 					" group by to_CHAR(b.createTime,'YYYY'),d.name");
 		}
 
+		@SuppressWarnings("unchecked")
 		public List<Object[]> Count_Month_Deteils(int month, int year,String name) {
 			
-			return this.getHibernateTemplate().find("select s.name,sum(b.totalAccount),to_CHAR(b.createTime,'YYYY'),to_CHAR(b.createTime,'MM'),d.name "+
-					"from BizClaimVoucher b,SysDepartment d,SysEmployee s,BizClaimVoucherDetaildao "+
+			/*System.out.println("进来了");
+			
+			List<Object[]> list= this.getHibernateTemplate().find("select s.name,sum(b.totalAccount),to_CHAR(b.createTime,'YYYY'),to_CHAR(b.createTime,'MM'),d.name "+
+					"from BizClaimVoucher b,SysDepartment d,SysEmployee s,BizClaimVoucherDetail "+
 					"where b.sysEmployeeByCreateSn.sn=s.sn and d.id=s.sysDepartment.id and " +
 					"to_CHAR(b.createTime,'MM')=? and to_CHAR(b.createTime,'YYYY')=? and d.name=?  " +
 					"group by s.name,to_CHAR(b.createTime,'YYYY'),to_CHAR(b.createTime,'MM'),d.name ",month,year,name);
+			
+			System.out.println();
+*/
+
+			try {
+				Query q = this.getSession().createQuery("select s.name,sum(b.totalAccount),to_CHAR(b.createTime,'YYYY'),to_CHAR(b.createTime,'MM'),d.name "+
+						"from BizClaimVoucher b,SysDepartment d,SysEmployee s "+
+						"where b.sysEmployeeByCreateSn.sn=s.sn and d.id=s.sysDepartment.id and " +
+						"to_CHAR(b.createTime,'MM')=? and to_CHAR(b.createTime,'YYYY')=? and d.name=?  and b.status='已通过' " +
+						"group by s.name,to_CHAR(b.createTime,'YYYY'),to_CHAR(b.createTime,'MM'),d.name ");
+
+				q.setInteger(0, month);
+				q.setInteger(1, year);
+				q.setString(2, name);
+				List<Object[]> list=q.list();
+				return list;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
 			
 		}
 

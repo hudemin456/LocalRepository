@@ -37,7 +37,7 @@
     				<td>${b.year}年</td>
     				<td>${b.month}月</td>
     				<td>${b.positionName}</td>
-    				<td><a href="#">详情</a></td>
+    				<td><a href="Month_Details?id=${b.id}&sum=${b.totalAccount}">✈</a></td>
     			</tr>
     		</s:iterator>
     </table>

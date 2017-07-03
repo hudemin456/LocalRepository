@@ -53,7 +53,7 @@ $(function(){
     <form action="Details_submit" method="post">
     	<input type="hidden" value="${b.id}" name="id"/>
 	<input type="hidden" value="${b.id}" name="b1.id"/>
-   <table>
+ 	<table border="1" align="center">
    
    
    	<tr>

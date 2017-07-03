@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <a href="#">查看请假</a>
   
   
-     <table>
+     	<table border="1" align="center">
     	<tr>
     		<td>编号</td>
     		<td>填报日期</td>

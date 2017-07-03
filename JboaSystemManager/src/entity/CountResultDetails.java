@@ -11,7 +11,7 @@ public class CountResultDetails implements java.io.Serializable {
 	private Integer id;
 	private CountResult countResult;
 	private String name;
-	private Integer money;
+	private double money;
 	private Integer year;
 	private Integer month;
 	private String positionName;
@@ -60,11 +60,11 @@ public class CountResultDetails implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public Integer getMoney() {
+	public double getMoney() {
 		return this.money;
 	}
 
-	public void setMoney(Integer money) {
+	public void setMoney(double money) {
 		this.money = money;
 	}
 

@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <a href="Count_Month">报销单月度统计</a>
   <a href="Count_Year">报销单年度统计</a>
   
-    <table>
+    	<table border="1" align="center">
     	<tr>
     		<td>编号</td>
     		<td>填报日期</td>

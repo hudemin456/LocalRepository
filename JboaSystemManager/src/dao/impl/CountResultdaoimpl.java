@@ -23,14 +23,13 @@ public class CountResultdaoimpl extends HibernateDaoSupport implements CountResu
 	public int save(CountResult c) {
 		
 		try {
-			this.getHibernateTemplate().saveOrUpdate(c);
+			this.getHibernateTemplate().save(c);
 			
 			return 1;
 		} catch (DataAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
+
 			return 0;
+			
 		}
 		
 		

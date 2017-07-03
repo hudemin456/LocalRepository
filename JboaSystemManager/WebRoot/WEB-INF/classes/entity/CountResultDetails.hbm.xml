@@ -16,7 +16,7 @@
         <property name="name" type="java.lang.String">
             <column name="NAME" length="100" not-null="true" />
         </property>
-        <property name="money" type="java.lang.Integer">
+        <property name="money">
             <column name="MONEY" precision="9" scale="0" not-null="true" />
         </property>
         <property name="year" type="java.lang.Integer">

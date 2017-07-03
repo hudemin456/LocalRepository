@@ -22,7 +22,7 @@
 <body>
 	<h3>基本信息</h3>
 	<form action="pass" method="post">
-		<table>
+		<table border="1" align="center">
 			<s:iterator value="b" id="details">
 				<tr>
 					<td>编号：${b.id} &nbsp&nbsp</td>
