@@ -35,6 +35,8 @@
 	</bean>
 	
 	
+	
+	
 	<bean name="job1" class="org.springframework.scheduling.quartz.JobDetailBean">  
 		<property name="jobClass" value="util.Quartz_Count" />  
 		<property name="jobDataAsMap">  
@@ -47,7 +49,7 @@
 
 	<bean id="cron" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail" ref="job1"></property>
-		<property name="cronExpression" value="00 00 00 15 * ? *"></property>
+		<property name="cronExpression" value="50 18 12 1 * ? *"></property>
 	</bean>
 	
 	

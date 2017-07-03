@@ -10,6 +10,7 @@ public class YearCountResultDetails implements java.io.Serializable {
 
 	private Integer id;
 	private YearCountResult yearCountResult;
+	private Integer money;
 	private Integer name;
 	private Integer year;
 	private String positionName;
@@ -22,9 +23,10 @@ public class YearCountResultDetails implements java.io.Serializable {
 
 	/** full constructor */
 	public YearCountResultDetails(Integer id, YearCountResult yearCountResult,
-			Integer name, Integer year, String positionName) {
+			Integer money, Integer name, Integer year, String positionName) {
 		this.id = id;
 		this.yearCountResult = yearCountResult;
+		this.money = money;
 		this.name = name;
 		this.year = year;
 		this.positionName = positionName;
@@ -46,6 +48,14 @@ public class YearCountResultDetails implements java.io.Serializable {
 
 	public void setYearCountResult(YearCountResult yearCountResult) {
 		this.yearCountResult = yearCountResult;
+	}
+
+	public Integer getMoney() {
+		return this.money;
+	}
+
+	public void setMoney(Integer money) {
+		this.money = money;
 	}
 
 	public Integer getName() {

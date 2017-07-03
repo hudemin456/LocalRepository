@@ -27,10 +27,10 @@ public class BizClaimVoucherdaoimpl extends HibernateDaoSupport implements BizCl
 			if(index>0){
 				return this.getHibernateTemplate().find("from BizClaimVoucher b where b.status='已提交' and totalAccount>5000");
 			}else
+				
 			{
 				return this.getHibernateTemplate().find("from BizClaimVoucher b where b.status='已提交' and totalAccount<=5000");
 			}
-			
 		}
 
 		public int del(int id) {
@@ -46,7 +46,6 @@ public class BizClaimVoucherdaoimpl extends HibernateDaoSupport implements BizCl
 			} catch (Exception e) {
 				return 0;
 			}
-			
 		}
 
 		public int update(BizClaimVoucher b) {
@@ -132,12 +131,7 @@ public class BizClaimVoucherdaoimpl extends HibernateDaoSupport implements BizCl
 		}
 
 		public List<Object[]> Count_Month() {
-	/*		return super.getSession().createQuery("select sum(b.totalAccount),to_CHAR(b.createTime,'YYYY'),to_CHAR(b.createTime,'MM')," +
-					"d.name  from BizClaimVoucher b,SysEmployee s,SysDepartment d "+
-					"where b.sysEmployeeByCreateSn.sn=s.sn and d.id=s.sysDepartment.id and b.status='已通过' "+
-					" and b.create_time < to_date('2017-08-15','yyyy-MM-dd') "+
-					" group by to_CHAR(b.createTime,'MM'),to_CHAR(b.createTime,'YYYY'),d.name").list();*/
-			
+
 			return this.getHibernateTemplate().find("select sum(b.totalAccount) as count,to_CHAR(b.createTime,'YYYY') as year ,to_CHAR(b.createTime,'MM') as month," +
 					"d.name as name from BizClaimVoucher b,SysEmployee s,SysDepartment d "+
 					"where b.sysEmployeeByCreateSn.sn=s.sn and d.id=s.sysDepartment.id and b.status='已通过' "+
@@ -151,6 +145,22 @@ public class BizClaimVoucherdaoimpl extends HibernateDaoSupport implements BizCl
 					"d.name from BizClaimVoucher b,SysEmployee s,SysDepartment d "+
 					"where b.sysEmployeeByCreateSn.sn=s.sn and d.id=s.sysDepartment.id and b.status='已通过'"+
 					" group by to_CHAR(b.createTime,'YYYY'),d.name");
+		}
+
+		public List<Object[]> Count_Month_Deteils(int month, int year,String name) {
+			
+			return this.getHibernateTemplate().find("select s.name,sum(b.totalAccount),to_CHAR(b.createTime,'YYYY'),to_CHAR(b.createTime,'MM'),d.name "+
+					"from BizClaimVoucher b,SysDepartment d,SysEmployee s,BizClaimVoucherDetaildao "+
+					"where b.sysEmployeeByCreateSn.sn=s.sn and d.id=s.sysDepartment.id and " +
+					"to_CHAR(b.createTime,'MM')=? and to_CHAR(b.createTime,'YYYY')=? and d.name=?  " +
+					"group by s.name,to_CHAR(b.createTime,'YYYY'),to_CHAR(b.createTime,'MM'),d.name ",month,year,name);
 			
 		}
+
+		public List<Object[]> Count_Year_Deteils(int year) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		
 }

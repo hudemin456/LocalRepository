@@ -22,6 +22,7 @@
   <body>
     <table border="1" align="center"  style="text-align: center;">
     		<tr >
+    			<td>编号</td>
     			<td>总计</td>
     			<td>年份</td>
     			<td>月份</td>
@@ -29,12 +30,13 @@
     			<td>操作</td>
     		</tr>
     		
-    		<s:iterator value="list_month" id="c" step="i">
+    		<s:iterator value="list" id="b" >
     			<tr>
-    				<td>￥${c[0]}</td>
-    				<td>${c[1]}年</td>
-    				<td>${c[2]}月</td>
-    				<td>${c[3]}</td>
+    				<td>${b.id}</td>
+    				<td>￥${b.totalAccount}</td>
+    				<td>${b.year}年</td>
+    				<td>${b.month}月</td>
+    				<td>${b.positionName}</td>
     				<td><a href="#">详情</a></td>
     			</tr>
     		</s:iterator>

@@ -10,7 +10,8 @@ public class CountResultDetails implements java.io.Serializable {
 
 	private Integer id;
 	private CountResult countResult;
-	private Integer name;
+	private String name;
+	private Integer money;
 	private Integer year;
 	private Integer month;
 	private String positionName;
@@ -22,11 +23,12 @@ public class CountResultDetails implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public CountResultDetails(Integer id, CountResult countResult,
-			Integer name, Integer year, Integer month, String positionName) {
+	public CountResultDetails(Integer id, CountResult countResult, String name,
+			Integer money, Integer year, Integer month, String positionName) {
 		this.id = id;
 		this.countResult = countResult;
 		this.name = name;
+		this.money = money;
 		this.year = year;
 		this.month = month;
 		this.positionName = positionName;
@@ -50,12 +52,20 @@ public class CountResultDetails implements java.io.Serializable {
 		this.countResult = countResult;
 	}
 
-	public Integer getName() {
+	public String getName() {
 		return this.name;
 	}
 
-	public void setName(Integer name) {
+	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Integer getMoney() {
+		return this.money;
+	}
+
+	public void setMoney(Integer money) {
+		this.money = money;
 	}
 
 	public Integer getYear() {

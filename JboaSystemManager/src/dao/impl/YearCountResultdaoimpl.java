@@ -27,4 +27,5 @@ public class YearCountResultdaoimpl extends HibernateDaoSupport implements YearC
 		return this.getHibernateTemplate().find("from YearCountResult");
 	}
 
+	
 }

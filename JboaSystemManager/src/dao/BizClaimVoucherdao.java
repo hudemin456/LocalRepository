@@ -31,4 +31,8 @@ public interface BizClaimVoucherdao {
 	
 	public List<Object[]> Count_Year();
 	
+	public List<Object[]> Count_Month_Deteils(int month,int year,String name);
+	
+	public List<Object[]> Count_Year_Deteils(int year);
+	
 }

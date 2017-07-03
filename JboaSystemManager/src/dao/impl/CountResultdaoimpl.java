@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -21,7 +22,18 @@ public class CountResultdaoimpl extends HibernateDaoSupport implements CountResu
 
 	public int save(CountResult c) {
 		
-		return (Integer) this.getHibernateTemplate().save(c);
+		try {
+			this.getHibernateTemplate().saveOrUpdate(c);
+			
+			return 1;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+			return 0;
+		}
+		
+		
 
 	}
 

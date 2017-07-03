@@ -71,7 +71,7 @@
 	</action>
 	
 	
-	<action name="Count_Month" class="action.BizClaimVoucherAction" method="Count_Month">
+	<action name="Count_Month" class="action.CountResultAction" method="Count_Month">
 		<result>Count_Month.jsp</result>
 	</action>
 	

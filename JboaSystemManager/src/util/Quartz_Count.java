@@ -8,6 +8,8 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import entity.BizClaimVoucher;
 import entity.CountResult;
+import entity.CountResultDetails;
+import entity.YearCountResult;
 
 import biz.BizClaimVoucherbiz;
 import biz.CountResultbiz;
@@ -30,6 +32,7 @@ public class Quartz_Count  extends QuartzJobBean {
 			
 			int i=0;
 			
+			//遍历把查询出来的数据存到统计表中
 			for (Object[] aa : list) {
 				
 				CountResult c=new CountResult();
@@ -39,11 +42,69 @@ public class Quartz_Count  extends QuartzJobBean {
 				c.setMonth(Integer.parseInt((String) aa[2]));
 				c.setPositionName((String) aa[3]);
  
+				//拿到新增进入数据的主键
 				countbiz.save(c);
+				
+
 				i++;
 			}
 			
-			System.out.println("ss");
+			//查询刚刚新增进去的统计表
+			List<CountResult>newlist=countbiz.findAll();
+			
+			for (CountResult countResult : newlist) {
+					
+				//根据数据查询详情集合
+				List<Object[]>deteils_list=claimvoucherbiz.Count_Month_Deteils(countResult.getMonth(), countResult.getYear(),countResult.getPositionName());
+
+				
+				for (Object[] bb : deteils_list) {
+					//创建详情对象
+					CountResultDetails crd=new CountResultDetails();
+					
+					crd.setName((String) bb[0]);
+					
+					crd.setCountResult(countResult);
+					
+					crd.setMoney(Integer.parseInt((String) bb[1]));
+					
+					crd.setYear(Integer.parseInt((String) bb[2]));
+					
+					crd.setMonth(Integer.parseInt((String) bb[3]));
+					
+					crd.setPositionName((String) bb[4]);
+				}
+				
+				
+			}
+			
+			
+			
+		
+			
+				
+			//现在的需求就是要拿到主键，然后建立遍历 用来遍历新增详情表 现在问题在于 如果我用save 那我下次进来这个方法的时候就会
+			//出现主键冲突的问题，如果我不用 那saveOrUpdate则不能返回主键。
+			
+			
+			
+			
+			
+			
+			
+		/*	List<Object[]>year=claimvoucherbiz.Count_Year();
+			
+			for (Object[] bb : year) {
+				YearCountResult y=new YearCountResult();
+				
+				y.setTotalAccount(Integer.parseInt((String) bb[0]));
+				y.setYear(Integer.parseInt((String) bb[1]));
+				y.setPositionName((String) bb[2]);
+				
+				
+			}*/
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
