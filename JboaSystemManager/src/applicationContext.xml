@@ -40,6 +40,18 @@
 		<property name="dao" ref="monthDetailsresult"></property>
 	</bean>
 	
+	<bean id="yearcount" class="dao.impl.YearCountResultdaoimpl"></bean>
+	
+	<bean id="yearbiz" class="biz.impl.YearCountResultbizimpl">
+		<property name="dao" ref="yearcount"></property>
+	</bean>
+	
+	<bean id="yearDetails" class="dao.impl.YearCountresultDetailsdaoimpl"></bean>
+	
+	<bean id="yearbizDetails" class="biz.impl.YearCountresultDetailsbizimpl">
+		<property name="dao" ref="yearDetails"></property>
+	</bean>
+	
 	
 	<bean name="job1" class="org.springframework.scheduling.quartz.JobDetailBean">  
 		<property name="jobClass" value="util.Quartz_Count" />  
@@ -48,14 +60,19 @@
 		<entry key="claimvoucherbiz" value-ref="biz" />  
 		<entry key="countbiz" value-ref="monthbiz" />
 		<entry key="detailsbiz" value-ref="monthDetailsbiz" />
+		<entry key="yearbiz" value-ref="yearbiz" />
+		<entry key="yearDetailsbiz" value-ref="yearbizDetails" />
 		</map>  
 		</property>  
 	</bean>  
 
 	<bean id="cron" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail" ref="job1"></property>
-		<property name="cronExpression" value="00 00 00 15 * ? *"></property>
+		<property name="cronExpression" value="10 19 17 5 * ? *"></property>
 	</bean>
+	
+	
+	
 	
 	
 	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

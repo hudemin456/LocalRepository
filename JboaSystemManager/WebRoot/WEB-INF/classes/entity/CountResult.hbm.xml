@@ -13,7 +13,7 @@
         <property name="totalAccount">
             <column name="TOTAL_ACCOUNT" precision="9" scale="0" not-null="true" />
         </property>
-        <property name="year" type="java.lang.Integer">
+        <property name="year" >
             <column name="YEAR" precision="9" scale="0" not-null="true" />
         </property>
         <property name="month" type="java.lang.Integer">

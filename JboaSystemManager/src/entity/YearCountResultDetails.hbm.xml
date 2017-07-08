@@ -13,11 +13,11 @@
         <many-to-one name="yearCountResult" class="entity.YearCountResult" fetch="select">
             <column name="CRID" precision="9" scale="0" not-null="true" />
         </many-to-one>
-        <property name="money" type="java.lang.Integer">
+        <property name="money" >
             <column name="MONEY" precision="9" scale="0" not-null="true" />
         </property>
-        <property name="name" type="java.lang.Integer">
-            <column name="NAME" precision="9" scale="0" not-null="true" />
+        <property name="name" type="java.lang.String">
+            <column name="NAME" length="100" not-null="true" />
         </property>
         <property name="year" type="java.lang.Integer">
             <column name="YEAR" precision="9" scale="0" not-null="true" />

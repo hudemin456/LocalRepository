@@ -75,8 +75,12 @@
 		<result>Count_Month.jsp</result>
 	</action>
 	
-	<action name="Count_Year" class="action.BizClaimVoucherAction" method="Count_Year">
+	<action name="Count_Year" class="action.YearResultAction" method="findAll">
 		<result>Count_Year.jsp</result>
+	</action>
+	
+	<action name="Year_Details" class="action.YearResultDetailsAction" method="findAll">
+		<result>Count_Year_Details.jsp</result>
 	</action>
 	
 	

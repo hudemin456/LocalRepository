@@ -12,7 +12,7 @@ public class YearCountResult implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private Integer totalAccount;
+	private double totalAccount;
 	private Integer year;
 	private String positionName;
 	private Set yearCountResultDetailses = new HashSet(0);
@@ -24,7 +24,7 @@ public class YearCountResult implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public YearCountResult(Integer id, Integer totalAccount, Integer year,
+	public YearCountResult(Integer id, double totalAccount, Integer year,
 			String positionName) {
 		this.id = id;
 		this.totalAccount = totalAccount;
@@ -52,11 +52,11 @@ public class YearCountResult implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Integer getTotalAccount() {
+	public double getTotalAccount() {
 		return this.totalAccount;
 	}
 
-	public void setTotalAccount(Integer totalAccount) {
+	public void setTotalAccount(double totalAccount) {
 		this.totalAccount = totalAccount;
 	}
 

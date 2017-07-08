@@ -25,7 +25,7 @@ public class CountResult implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public CountResult(Integer id, Integer totalAccount, Integer year,
+	public CountResult(Integer id, double totalAccount, Integer year,
 			Integer month, String positionName) {
 		this.id = id;
 		this.totalAccount = totalAccount;

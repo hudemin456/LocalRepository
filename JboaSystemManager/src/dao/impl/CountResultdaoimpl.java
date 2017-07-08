@@ -31,14 +31,14 @@ public class CountResultdaoimpl extends HibernateDaoSupport implements CountResu
 			return 0;
 			
 		}
-		
-		
 
 	}
 
 	public List<CountResult> findAll() {
-		// TODO Auto-generated method stub
-		return this.getHibernateTemplate().find("from CountResult");
+	
+		 List<CountResult> list=this.getHibernateTemplate().find("from CountResult");
+		
+		return list;
 	}
 
 }

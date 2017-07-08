@@ -24,7 +24,7 @@ public class CountResultDetails implements java.io.Serializable {
 
 	/** full constructor */
 	public CountResultDetails(Integer id, CountResult countResult, String name,
-			Integer money, Integer year, Integer month, String positionName) {
+			double money, Integer year, Integer month, String positionName) {
 		this.id = id;
 		this.countResult = countResult;
 		this.name = name;

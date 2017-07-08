@@ -52,7 +52,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<td>${b.status}</td>
     		<td>${ b.sysEmployeeByNextDealSn.name}</td>
     		<td>
-
     			<c:if test="${b.status=='已打回'}"><a href="details?id=${b.id}&status=lalalala">修改</a>&nbsp</c:if><a href="details?id=${b.id}&status=h">详情</a>
     		</td>
     		

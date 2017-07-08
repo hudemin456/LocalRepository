@@ -87,9 +87,9 @@ public class BizClaimVoucherbizimpl implements BizClaimVoucherbiz {
 		
 	}
 
-	public List<Object[]> Count_Year_Deteils(int year) {
+	public List<Object[]> Count_Year_Deteils(int year,String name) {
 		// TODO Auto-generated method stub
-		return dao.Count_Year_Deteils(year);
+		return dao.Count_Year_Deteils(year,name);
 	}
 	
 	

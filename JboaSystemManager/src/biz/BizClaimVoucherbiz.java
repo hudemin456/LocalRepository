@@ -30,5 +30,5 @@ public interface BizClaimVoucherbiz {
 	
 	public List<Object[]> Count_Month_Deteils(int month,int year,String name);
 	
-	public List<Object[]> Count_Year_Deteils(int year);
+	public List<Object[]> Count_Year_Deteils(int year,String name);
 }
