@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.faqsMapper">
+			<resultMap type="faqs" id="mp">
+					<id property="fid" column="fid"/>
+					<association property="c" javaType="classes"></association>
+			</resultMap>
+	<select id="findAll" resultMap="mp">
+			SELECT * FROM faqs f,classes c WHERE F.classid=C.cid LIMIT #{page},3
+	</select>
+	<select id="countFaqs" resultType="int">
+			SELECT COUNT(*) FROM faqs
+	</select>
+	<delete id="deleteFaqs">
+			DELETE FROM faqs WHERE FID=#{fid}
+	</delete>
+	<insert id="insertFaqs">
+		INSERT INTO faqs(title,createdate,content,classid) VALUES(#{title},NOW(),#{content},#{c.cid})
+	</insert>
+</mapper>
